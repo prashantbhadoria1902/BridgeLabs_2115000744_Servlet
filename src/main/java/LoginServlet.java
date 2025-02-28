@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final String PREDEFINED_USER = "admin";
-    private static final String PREDEFINED_PASS = "password";
+    private static final String PREDEFINED_PASS = "password" ;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
