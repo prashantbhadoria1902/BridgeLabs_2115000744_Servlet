@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/login2")
 public class LoginServlet3 extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
     private static final String PREDEFINED_USER = "Admin";
-    private static final String PREDEFINED_PASS = "Admin@123"; // Must match validation rules
+    private static final String PREDEFINED_PASS = "Admin@123";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -17,13 +19,13 @@ public class LoginServlet3 extends HttpServlet {
 
         if (!isValidName(username)) {
             request.setAttribute("error", "Invalid Name! Must start with a capital letter and have at least 3 characters.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login2.jsp").forward(request, response);
             return;
         }
 
         if (!isValidPassword(password)) {
             request.setAttribute("error", "Invalid Password! Must be 8+ chars, contain 1 uppercase, 1 digit, and exactly 1 special character.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login2.jsp").forward(request, response);
             return;
         }
 
@@ -32,7 +34,7 @@ public class LoginServlet3 extends HttpServlet {
             request.getRequestDispatcher("welcome.jsp").forward(request, response);
         } else {
             request.setAttribute("error", "Invalid Username or Password!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("login2.jsp").forward(request, response);
         }
     }
 
